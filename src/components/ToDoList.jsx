@@ -1,11 +1,12 @@
 import React from "react";
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 import ToDoItem from "./ToDoItem";
 
 const initialValue = [];
 
 export default function ToDoList() {
   const [inputValue, setInputValue] = useState("");
+  const [completedTodos, setCompletedTodos] = useState(0);
   const [todos, dispatch] = useReducer(reducer, initialValue);
   console.log(todos);
 
@@ -26,6 +27,9 @@ export default function ToDoList() {
             ? { ...todo, completed: !todo.completed }
             : todo
         );
+      case "DELETE_TODO":
+        return state.filter((todo) => todo.id !== action.payload);
+
       default:
         return state;
     }
@@ -49,9 +53,18 @@ export default function ToDoList() {
     ); /* so that we dont need to delete the input field manually */
   }
 
+  function handleClick(id) {
+    dispatch({ type: "DELETE_TODO", payload: id });
+  }
+
+  useEffect(() => {
+    const completedCount = todos.filter((todo) => todo.completed).length;
+    setCompletedTodos(completedCount);
+  }, [todos]);
+
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>Todo Liste</h1>
+      <h1>Todo Liste 📝 </h1>
       <form onSubmit={handleSubmit}>
         {" "}
         {/* also with enter, not just with click (as in case of onClick) */}
@@ -59,16 +72,21 @@ export default function ToDoList() {
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Neues Todo eintragen"
+          placeholder="   Neues Todo"
         />
-        <button>Hinzufügen</button>
+        <button className="add-button">Hinzufügen</button>
       </form>
       <ul style={{ listStyleType: "none" }}>
         {todos.map((todo) => (
-          <ToDoItem todo={todo} key={todo.id} handleToggle={handleToggle} />
+          <ToDoItem
+            todo={todo}
+            key={todo.id}
+            handleToggle={handleToggle}
+            handleClick={handleClick}
+          />
         ))}
       </ul>
-      <p>Erledigte Todos</p>
+      <p className="erledigte-p">Erledigte Todos: {completedTodos}</p>
     </div>
   );
 }

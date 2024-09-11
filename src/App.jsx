@@ -3,9 +3,9 @@ import ToDoList from "./components/ToDoList";
 
 function App() {
   return (
-    <>
+    <div className="app-wrapper">
       <ToDoList />
-    </>
+    </div>
   );
 }
 

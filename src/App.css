@@ -1,0 +1,105 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  height: 100vh;
+
+  .erledigte-p {
+    margin-top: 10vh;
+  }
+
+  input {
+    width: 40vw;
+  }
+
+  input,
+  button {
+    border-radius: 5px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .add-button {
+    padding: 7px;
+    margin-left: 10px;
+    background-color: lime;
+  }
+
+  .add-button:hover {
+    background-color: green;
+    color: white;
+  }
+
+  .app-wrapper {
+    height: 100vh;
+    font-family: "Edu AU VIC WA NT Hand", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    margin: auto 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 10% 10% 0;
+    height: 90vh;
+    width: 95vw;
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 10%,
+        #ea858a 10%,
+        #ea858a calc(10% + 3px),
+        transparent calc(10% + 3px),
+        transparent 100%
+      ),
+      linear-gradient(180deg, white 10%, transparent 10%),
+      repeating-linear-gradient(
+        180deg,
+        #91c1e1 0px,
+        #91c1e1 2px,
+        transparent 2px,
+        transparent 38px
+      ),
+      linear-gradient(white, white);
+  }
+
+  .todo-item-li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Full width for the list item */
+    justify-content: space-between; /* Ensure the delete button stays on the right */
+  }
+
+  input[type="checkbox"] {
+    flex-shrink: 0; /* Prevent checkbox from shrinking or moving */
+    width: 20px; /* Set a fixed width for the checkbox */
+    height: 20px; /* Set a fixed height for the checkbox */
+    margin-right: 10px; /* Add space between checkbox and label */
+  }
+
+  label {
+    flex-grow: 1; /* Label takes up remaining space */
+    white-space: nowrap; /* Prevent label from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Show "..." for long text */
+    margin-right: 10px; /* Add space between label and delete button */
+  }
+
+  .delete-button {
+    flex-shrink: 0; /* Prevent delete button from shrinking or moving */
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 5px;
+    background-color: firebrick;
+    color: white;
+  }
+  .delete-button:hover {
+    background-color: red;
+  }
+}
