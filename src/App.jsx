@@ -1,11 +1,12 @@
-import './App.css'
+import "./App.css";
+import ToDoList from "./components/ToDoList";
 
 function App() {
   return (
     <>
-      <h1>React Starter Pack</h1>
+      <ToDoList />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
