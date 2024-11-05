@@ -7,4 +7,4 @@ This is a **small todo list app** built using **pure React** (no backend) as an 
 - Mark tasks as completed
 - Simple and intuitive user interface
 
-Check the deployed website [here](https://todo-list-deployment-exercise-c6hywaz0z.vercel.app/).
+Check the deployed website [here](https://todo-list-deployment-exercise.vercel.app/).
